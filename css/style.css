@@ -70,7 +70,7 @@ h1 {
     position: absolute;
     width: 240px;
     height: 170px;
-    background: linear-gradient(180deg, rgba(230,245,255), rgba(210,235,255));
+    background: linear-gradient(180deg, rgba(230, 245, 255), rgba(210, 235, 255));
     border: 6px solid #7b8fa6;
 }
 
@@ -124,5 +124,102 @@ h1 {
 
     100% {
         transform: perspective(800px) rotateY(40deg) translateX(-40px);
+    }
+}
+
+
+/* clock */
+.clock {
+    position: absolute;
+    top: 20%;
+    right: 21%;
+
+}
+
+.clock-container {
+    position: relative;
+    width: 70px;
+    height: 70px;
+    border: 2px solid #030303;
+    border-radius: 50%;
+    background-color: aliceblue;
+}
+
+.clock-face {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.center-dot {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background-color: #030303;
+}
+
+.hand {
+    position: absolute;
+    left: 50%;
+    bottom: 50%;
+    transform: translateX(-50%);
+    transform-origin: bottom center;
+    background-color: #030303;
+    border-radius: 20px;
+}
+
+.hour-hand {
+    width: 3px;
+    height: 16px;
+    animation-name: rotate;
+    animation-duration: 15s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+.minute-hand {
+    width: 2px;
+    height: 25px;
+    animation-name: rotate;
+    animation-duration: 4s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+.clock-mark {
+    position: absolute;
+    text-align: center;
+    font-size: 10px;
+}
+
+.m12 {
+    top: 5px;
+}
+
+.m3 {
+    transform: translate(0, -50%);
+    top: 50%;
+    right: 5px;
+}
+
+.m6 {
+    bottom: 3px;
+}
+
+.m9 {
+    transform: translate(0, -50%);
+    top: 50%;
+    left: 5px;
+}
+
+@keyframes rotate {
+    from {
+        transform: translateX(-50%) rotate(0deg);
+    }
+
+    to {
+        transform: translateX(-50%) rotate(360deg);
     }
 }
