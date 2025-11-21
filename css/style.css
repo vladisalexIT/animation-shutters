@@ -1,0 +1,128 @@
+html {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', 'sans-serif';
+    font-size: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url(../img/house-bg.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+
+h1 {
+    margin: 0;
+}
+
+.shutters-block {
+    position: relative;
+    z-index: 200;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.greeting-wrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 2s ease;
+    background-image: url(../img/nature.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    width: 400px;
+    height: 150px;
+}
+
+.title {
+    margin-top: -25px;
+}
+
+.shutter-left,
+.shutter-right {
+    position: absolute;
+    width: 200px;
+    height: 150px;
+    background: linear-gradient(180deg, rgba(230,245,255), rgba(210,235,255));
+    border: 6px solid #7b8fa6;
+}
+
+.shutter-left {
+    left: 0;
+    transform: perspective(800px) rotateY(0deg) translateX(0);
+    transform-origin: right center;
+}
+
+.shutter-right {
+    right: 0;
+    transform: perspective(800px) rotateY(0deg) translateX(0);
+    transform-origin: left center;
+}
+
+.shutters-block:hover .shutter-right {
+    animation-name: open-right;
+    animation-duration: 2s;
+    animation-timing-function: ease-out;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+.shutters-block:hover .shutter-left {
+    animation-name: open-left;
+    animation-duration: 2s;
+    animation-timing-function: ease-out;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+.shutters-block:hover .greeting-wrapper {
+    opacity: 1;
+}
+
+
+@keyframes open-left {
+    0% {
+        transform: perspective(800px) rotateY(0deg) translateX(0);
+    }
+
+    100% {
+        transform: perspective(800px) rotateY(-40deg) translateX(40px);
+    }
+}
+
+@keyframes open-right {
+    0% {
+        transform: perspective(800px) rotateY(0deg) translateX(0);
+    }
+
+    100% {
+        transform: perspective(800px) rotateY(40deg) translateX(-40px);
+    }
+}
